@@ -1,5 +1,7 @@
 FROM resin/raspberrypi3-debian:latest
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Packages
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -q --fix-missing && \
   apt-get -y upgrade && \
