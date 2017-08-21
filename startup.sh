@@ -80,12 +80,11 @@ chmod 640 /etc/saslauthd.conf
 
 # getmail
 # https://stackoverflow.com/a/9625233/1937418
-for i in `ls /etc/getmail/getmailrc-*`; do
+for i in `ls ${MAIL_DATA_PATH}/getmail/getmailrc-*`; do
     (crontab -l 2>/dev/null; echo "*/5  *  *   *   *   vmail    getmail -r $i --getmaildir /etc/getmail/ >> /dev/null") | crontab - ;
 done;
-chown -R vmail:vmail /etc/getmail/
-touch /var/log/getmail.log
-chown -R vmail:vmail /var/log/getmail.log
+touch ${MAIL_DATA_PATH}/getmail/getmail.log
+#chown -R vmail:vmail ${MAIL_DATA_PATH}/getmail
 
 if [ -z "${DATA_CHOWN}" -o "${DATA_CHOWN}" != "0" ]; then
     echo "Changing ownership of Data folder. It may take a while..."

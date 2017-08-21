@@ -20,8 +20,6 @@ RUN adduser postfix sasl
 
 COPY config /tmp/config
 
-COPY getmail /etc/getmail
-
 COPY startup.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/startup.sh
 
