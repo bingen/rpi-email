@@ -81,7 +81,7 @@ chmod 640 /etc/saslauthd.conf
 # getmail
 # https://stackoverflow.com/a/9625233/1937418
 for i in `ls ${MAIL_DATA_PATH}/getmail/getmailrc-*`; do
-    (crontab -l 2>/dev/null; echo "*/5  *  *   *   *   vmail    getmail -r $i --getmaildir /etc/getmail/ >> /dev/null") | crontab - ;
+    (crontab -l 2>/dev/null; echo "*/5  *  *   *   *   sudo -u vmail getmail -r $i --getmaildir /etc/getmail/ >> /dev/null") | crontab - ;
 done;
 touch ${MAIL_DATA_PATH}/getmail/getmail.log
 #chown -R vmail:vmail ${MAIL_DATA_PATH}/getmail
