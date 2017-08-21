@@ -67,7 +67,7 @@ chmod -R 600 /etc/postfix/certs/
 
 # Dovecot
 mkdir -p /etc/dovecot/private
-openssl req -new -x509 -nodes -out /etc/dovecot.pem -keyout /etc/private/dovecot.pem -days 3650 -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.${DOMAIN}"
+openssl req -new -x509 -nodes -out /etc/dovecot/dovecot.pem -keyout /etc/dovecot/private/dovecot.pem -days 3650 -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.${DOMAIN}"
 cp -f /tmp/config/dovecot/* /etc/dovecot/
 cp -f /tmp/config/dovecot/conf.d/* /etc/dovecot/conf.d/
 #Saslauthd
